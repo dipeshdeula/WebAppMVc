@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IndexTempData</title>
+</head>
+<body>
+    <h2>Index Temp Data</h2>
+    <h2>@TempData["Message"]</h2>
+    <P>There are @TempData["CustomerCount"] customers added to the list.</P>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Customer Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @TempData["CustomerList"] as List<Customer>)
+            { 
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-controller="Customer" asp-action = "Method">Go to Method</a>
+</body>
+</html>

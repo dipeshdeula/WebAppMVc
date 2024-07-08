@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "IndexViewData";
+}
+
+<h1>IndexViewData</h1>
+
+<h3>@ViewData["Message"]</h3>
+<p>There are @ViewData["CustomerCount"] customers added into the list.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Customer Id</th>
+            <th>Customer Name</th>
+            <th>Customer Amount</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in ViewData["CustomerList"] as List<Customer>)
+        {
+
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Amount</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@{
+    TempData.Keep("Message");
+}
